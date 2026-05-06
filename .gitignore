@@ -1,0 +1,40 @@
+# Rust build artifacts
+/target/
+target/
+**target/
+*.rlib
+*.rmeta
+*.so
+*.dylib
+*.dll
+
+# Cargo
+Cargo.lock
+/vendor/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.iml
+.vimrc
+.nvimrc
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+Thumbs.db
+
+# Test coverage
+*.profraw
+*.profdata
+/coverage/
+
+# Benchmark results
+/benches/target/
