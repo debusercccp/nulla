@@ -1,8 +1,8 @@
-# Nothing
+# Nulla
 
 Tre implementazioni dello stesso programma in linguaggi diversi. Ciascuno chiede all'utente un numero di secondi e dorme per quel tempo.
 
-Questa roba non fa assolutamente nulla.
+Questo repo non fa assolutamente nulla. LOL
 
 ## nothing.rs (Rust)
 
@@ -15,14 +15,16 @@ Chiede all'utente quante volte eseguire l'operazione (in secondi) e poi pausa il
 - Esegue il flush di stdout per visualizzare il prompt prima di leggere l'input
 - Crash immediato se l'input non è un numero valido
 
-**Compilazione:**
+**Build ed esecuzione:**
 ```bash
-rustc nothing.rs -o nothing
+cd nothing/
+cargo build      # Compila il progetto
+cargo run        # Compila ed esegue
 ```
 
 **Utilizzo:**
 ```bash
-./nothing
+cargo run
 # Output: How many times?
 # Input: 5
 # Pausa di 5 secondi
@@ -79,3 +81,4 @@ gcc nothing.c -o nothing
 | Tempo di sleep | `thread::sleep()` | `time.sleep()` | `sleep()` POSIX |
 | Tipo numerico | `u64` | `int` | `int` |
 | Overhead | Minimo | Avvio Python | Minimo |
+
