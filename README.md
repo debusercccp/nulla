@@ -29,24 +29,36 @@ cargo run
 # Input: 5
 # Pausa di 5 secondi
 ```
-
 ## nothing.py (Python)
 
-Accetta il numero di secondi tramite argomenti da riga di comando oppure usa il valore di default (3 secondi).
+Loop interattivo che dorme per un tempo variabile e consente di ripetere o modificare la durata.
 
 **Caratteristiche:**
-- Usa `argparse` per la gestione degli argomenti
-- Opzione `-n` o `--times` per specificare i secondi
-- Valore di default: 3 secondi
-- Messaggio informativo prima della pausa
-- Robusto rispetto a input non numerico (argparse valida il tipo)
+- Usa `argparse` per impostare la durata iniziale da CLI
+- Opzione `-n` o `--times` per specificare i secondi iniziali (default: 3)
+- Menu interattivo con tre opzioni: ripetere, cambiare durata, uscire
+- Validazione dell'input con controllo su numeri negativi
+- Gestione degli errori per input non numerico
 
 **Utilizzo:**
 ```bash
-python3 nothing.py              # Dorme 3 secondi
-python3 nothing.py -n 10        # Dorme 10 secondi
-python3 nothing.py --times 7    # Dorme 7 secondi
+python3 nothing.py              # Avvia con 3 secondi di default
+python3 nothing.py -n 10        # Avvia con 10 secondi
+python3 nothing.py --times 7    # Avvia con 7 secondi
 python3 nothing.py -h           # Mostra l'help
+```
+
+**Durante l'esecuzione:**
+```
+ Dormo per 3 secondi... 
+
+Cosa vuoi fare?
+1. Rifarlo con la stessa durata
+2. Cambiare durata e rifarlo
+0. Esci
+Scelta: 2
+Inserisci i nuovi secondi: 5
+ Dormo per 5 secondi... 
 ```
 
 ## nothing.c (C)
@@ -76,9 +88,9 @@ gcc nothing.c -o nothing
 
 | Aspetto | Rust | Python | C |
 |---------|------|--------|---|
-| Input | Interattivo (stdin) | Argomenti CLI | Interattivo (stdin) |
-| Validazione | Panic se non numerico | Argparse (robusta) | Loop di convalida |
+| Input | Interattivo (stdin) | CLI + Menu interattivo | Interattivo (stdin) |
+| Validazione | Panic se non numerico | Argparse + Loop con controllo | Loop di convalida |
 | Tempo di sleep | `thread::sleep()` | `time.sleep()` | `sleep()` POSIX |
 | Tipo numerico | `u64` | `int` | `int` |
+| Flusso | Una sola pausa | Ripeti/modifica in loop | Una sola pausa |
 | Overhead | Minimo | Avvio Python | Minimo |
-
